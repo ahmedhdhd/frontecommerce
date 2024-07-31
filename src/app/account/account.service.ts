@@ -100,11 +100,17 @@ login1(values: any) {
   }
 
   getcurentuservalue(){
-    return this.currentUserSource ;
+    const s: string = localStorage.getItem("user") ?? '{}'; 
+    const jsonObject: User = JSON.parse(s);
+    return jsonObject ;
   }
   setuserinlocalstorage(user : User){
     let jsonString: string = JSON.stringify(user);
     localStorage.setItem("user" ,jsonString )
+
+  }
+  updateusertaddres(id : number , data : User){
+   //return this.put(this.baseUrl)
 
   }
 }

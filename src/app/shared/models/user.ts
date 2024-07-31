@@ -6,6 +6,11 @@ export interface User {
     phoneNumber: string,
     type: number
     token: string;
+    NomRaisonSocial? : string ;
+    MFcin ?: string ;
+    Adresse? : string ;
+    CodePostal ?: string ;
+    Gouvernorat ?: string;
 }
 
 export class Address {
@@ -27,7 +32,13 @@ export class Commande {
     fraisLivraison!: number;
     status!: string;
     idUser!: number;
+    NomRaisonSocial? : string ;
+    MFcin ?: string ;
+    Adresse?: string ;
+    CodePostal?: string ;
+    Gouvernorat?: string;
   }
+ 
   export class DétailsCommande {
   id!: number;
   qte!: number;

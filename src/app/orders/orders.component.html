@@ -1,19 +1,32 @@
 <div class="container mt-5">
+    
     <div class="row">
         <div class="col-12">
-            <table class="table table-hover" style="cursor: pointer;">
+            <table   id="table"
+             class="table table-hover" style="cursor: pointer;" 
+            data-filter-control="true"
+            data-show-search-clear-button="true">
                 <thead class="thead-light">
                     <tr>
-                        <th>Order</th>
+                        <th>Numéro</th>
                         <th>Date</th>
+                        <th>Client</th> 
+                         <th>M.F/Cin</th>
+                        <th>Telephone</th>
+                        <th>Address</th>
                         <th>Total</th>
-                        <th>Status</th>
+                        <th>Etat</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let commande of commandes" routerLink="/AllCommandes{{commande.id}}">
-                        <th># {{commande.id}}</th>
+                        <th> {{commande.id}}</th>
                         <td>{{commande.date }}</td>
+                        <td>{{commande.user.fullName }}</td>
+                        <td>{{commande.user.mFcin }}</td>
+
+                        <td>{{commande.user.phoneNumber }}</td>
+                        <td>{{commande.user.adresse }}</td>
                         <td>{{commande.totalTTC}}</td>
                         <td>{{commande.status}}</td>
                     </tr>

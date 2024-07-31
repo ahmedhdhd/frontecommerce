@@ -12,8 +12,8 @@ export class OrdersComponent implements OnInit {
 
   
 
-  
-  commandes: Commande[] = [];
+  search=""
+  commandes: any[] = [];
 
   constructor(private orderService: OrdersService) { }
 
