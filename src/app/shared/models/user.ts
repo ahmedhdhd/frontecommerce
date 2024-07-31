@@ -1,0 +1,38 @@
+export interface User {
+    id: number;
+    fullName  :string,
+    email: string;
+    password: string;
+    phoneNumber: string,
+    type: number
+    token: string;
+}
+
+export class Address {
+    firstName!: string;
+    lastName!: string;
+    street!: string;
+    city!: string;
+    state!: string;
+    zipcode!: string;
+}
+export class Commande {
+    id!: number;
+    date!: string;
+    heure!: string;
+    items!: DétailsCommande[];
+    totalTTC!: number;
+    totalTVA!: number;
+    totalHT!: number;
+    fraisLivraison!: number;
+    status!: string;
+    idUser!: number;
+  }
+  export class DétailsCommande {
+  id!: number;
+  qte!: number;
+  prixUnitaire!: number;
+  prixTotal!: number;
+  idProduit!: number;
+  
+}
