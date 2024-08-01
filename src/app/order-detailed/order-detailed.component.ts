@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { OrdersService } from '../orders/orders.service';
-import { Order } from '../shared/models/order';
+import { OrdersService } from '../commandes/orders.service';
 import { Commande } from '../shared/models/user';
 
 @Component({
@@ -12,7 +11,7 @@ import { Commande } from '../shared/models/user';
 })
 export class OrderDetailedComponent implements OnInit {
 
-  order?: Commande;
+  order?: any;
 
   constructor(private orderService: OrdersService, private route: ActivatedRoute, private bcService: BreadcrumbService) {
       this.bcService.set('@OrderDetailed', ' ');
@@ -24,7 +23,7 @@ export class OrderDetailedComponent implements OnInit {
       next: order => {
         console.log(order)
         this.order = order;
-        this.bcService.set('@OrderDetailed', `Order# ${order.id} - ${order.status}`);
+        //this.bcService.set('@OrderDetailed', `Order# ${order.id} - ${order.status}`);
       }
     })
   }

@@ -35,19 +35,16 @@
             </tr>
         </tbody>
     </table>
-    <div class="row" *ngIf="order">
+    <div class="row" *ngIf="order.items && order.items.length">
         <div class="col-8">
             <div>
                 <div class="table-responsive">
-                  
-
                     <table class="table">
                         <thead>
                             <tr>
                                 <th scope="col" class="border-0 bg-light">
                                     <div class="p-2 text-uppercase">Produit</div>
                                 </th>
-                                
                                 <th scope="col" class="border-0 bg-light">
                                     <div class="py-2 text-uppercase">Prix Unitaire</div>
                                 </th>
@@ -62,6 +59,9 @@
                                 </th>
                                 <th scope="col" class="border-0 bg-light">
                                     <div class="py-2 text-uppercase">Total</div>
+                                </th>
+                                <th scope="col" class="border-0 bg-light">
+                                    <div class="py-2 text-uppercase"></div>
                                 </th>
                             </tr>
                         </thead>
@@ -84,6 +84,18 @@
                                     <span class="font-weight-bold px-2"><strong>{{item.qte}}</strong></span>
                                 </td>
                                 <td class="align-middle"><strong>{{item.prixTotal}} TND</strong></td>
+                                <td class="align-middle">
+                                    <div>
+                                        <a class="text-danger" data-bs-toggle="modal" data-bs-target="#updateItemModal" (click)="setUpdateItem(order.id, item.id)">
+                                            <i class="fa fa-edit" style="font-size: 2em; cursor: pointer;"></i>
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a class="text-danger" (click)="deleteitems(ide, item.id)">
+                                            <i class="fa fa-trash" style="font-size: 2em; cursor: pointer;"></i>
+                                        </a>
+                                    </div>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -95,7 +107,7 @@
             <div class="p-4">
                 <ul class="list-unstyled mb-1">
                     <li class="d-flex justify-content-between py-3 border-bottom">
-                        <strong class="text-muted">Sous-total </strong>
+                        <strong class="text-muted">Sous-total</strong>
                         <strong>{{order.totalHT}} TND</strong>
                     </li>
                     <li class="d-flex justify-content-between py-3 border-bottom">
@@ -107,6 +119,72 @@
                         <strong>{{order.totalTTC}} TND</strong>
                     </li>
                 </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Item Modal -->
+    <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addItemModalLabel">Add Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="addItemForm" (ngSubmit)="onAddItem()">
+                        <div class="mb-3">
+                            <label for="product" class="form-label">Product ID</label>
+                            <input type="number" class="form-control" id="product" formControlName="idProduit">
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" formControlName="Qte">
+                        </div>
+                        <div class="mb-3">
+                            <label for="unitPrice" class="form-label">Unit Price</label>
+                            <input type="number" class="form-control" id="unitPrice" formControlName="PrixUnitaire">
+                        </div>
+                        <div class="mb-3">
+                            <label for="totalPrice" class="form-label">Total Price</label>
+                            <input type="number" class="form-control" id="totalPrice" formControlName="PrixTotal">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Item</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Update Item Modal -->
+    <div class="modal fade" id="updateItemModal" tabindex="-1" aria-labelledby="updateItemModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateItemModalLabel">Update Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup]="updateItemForm" (ngSubmit)="onUpdateItem()">
+                        <div class="mb-3">
+                            <label for="product" class="form-label">Product ID</label>
+                            <input type="number" class="form-control" id="product" formControlName="idProduit">
+                        </div>
+                        <div class="mb-3">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="number" class="form-control" id="quantity" formControlName="Qte">
+                        </div>
+                        <div class="mb-3">
+                            <label for="unitPrice" class="form-label">Unit Price</label>
+                            <input type="number" class="form-control" id="unitPrice" formControlName="PrixUnitaire">
+                        </div>
+                        <div class="mb-3">
+                            <label for="totalPrice" class="form-label">Total Price</label>
+                            <input type="number" class="form-control" id="totalPrice" formControlName="PrixTotal">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Item</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -11,7 +11,6 @@ import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { LoadingInterceptor } from './core/interceptor/loading.interceptor';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { OrderDetailedComponent } from './order-detailed/order-detailed.component';
-import { FormsModule } from '@angular/forms';
 import { AddEditTypeComponent } from './parametrage/add-edit-type/add-edit-type.component';
 import { ListTypeComponent } from './parametrage/list-type/list-type.component';
 import { AddEditFamilleComponent } from './parametrage/add-edit-famille/add-edit-famille.component';
@@ -20,6 +19,9 @@ import { AddEditUserComponent } from './parametrage/add-edit-user/add-edit-user.
 import { ListUserComponent } from './parametrage/list-user/list-user.component';
 import { AddEditClientComponent } from './parametrage/add-edit-client/add-edit-client.component';
 import { ListClientComponent } from './parametrage/list-client/list-client.component';
+import { CommandesComponent } from './commandes/commandes.component';
+import { DetailsCommandesComponent } from './details-commandes/details-commandes.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { ListClientComponent } from './parametrage/list-client/list-client.compo
     OrderDetailedComponent,
     AddEditClientComponent,
     ListClientComponent,
+    CommandesComponent,
+    DetailsCommandesComponent,
     
     
    
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,

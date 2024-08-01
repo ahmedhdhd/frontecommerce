@@ -17,6 +17,7 @@ export class CheckoutReviewComponent implements OnInit{
 
   ngOnInit(): void {
   }
+  
   @Input() appStepper?: CdkStepper;
   @Input() checkoutForm?: FormGroup;
 
@@ -55,7 +56,7 @@ export class CheckoutReviewComponent implements OnInit{
       const now = new Date();
       commande.date =now.getDate().toString()+"/0"+now.getMonth().toString()+"/"+now.getFullYear().toString();
       commande.heure = now.getHours().toString()+":"+now.getMinutes().toString();
-      commande.status="en cours"
+      commande.status="Valider"
       return commande;
     }
   

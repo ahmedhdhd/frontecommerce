@@ -25,4 +25,12 @@ export class OrdersService {
   getallcommande(): Observable<Commande[]>{
     return this.http.get<Commande[]>(this.baseUrl+"Commandes")
   }
-}
+  deleteitems(commandid : number, itemid : number){
+    return this.http.delete(this.baseUrl+`DetailsCommande/${commandid}/items/${itemid}`) }
+    addItemToCommande(commandeId: number, item: any): Observable<any> {
+      return this.http.post<any>(`${this.baseUrl}/commandes/${commandeId}/items`, item);
+    }
+  
+    updateItem(commandeId: number, itemId: number, item: any): Observable<any> {
+      return this.http.put<any>(`${this.baseUrl}/commandes/${commandeId}/items/${itemId}`, item);
+    }}

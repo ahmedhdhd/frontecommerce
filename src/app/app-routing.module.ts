@@ -19,6 +19,8 @@ import { ListUserComponent } from './parametrage/list-user/list-user.component';
 import { ListClientComponent } from './parametrage/list-client/list-client.component';
 import { OrdersComponent } from './orders/orders.component';
 import { OrderDetailedComponent } from './order-detailed/order-detailed.component';
+import { CommandesComponent } from './commandes/commandes.component';
+import { DetailsCommandesComponent } from './details-commandes/details-commandes.component';
 
 const routes: Routes = [
   {
@@ -89,10 +91,10 @@ const routes: Routes = [
 
   {
     path: 'AllCommandes',
-    component: OrdersComponent
+    component: CommandesComponent
   }, {
-    path: 'AllCommandes/:id',
-    component: OrderDetailedComponent
+    path: 'details/:id',
+    component: DetailsCommandesComponent
   },
 
 

@@ -6,7 +6,7 @@ import { OrdersComponent } from './orders.component';
 // 1. add routes for the orders
 
 const routes: Routes = [
-  {path: '', component: OrdersComponent},
+
 ]
 
 @NgModule({

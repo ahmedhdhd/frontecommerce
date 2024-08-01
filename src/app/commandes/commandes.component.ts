@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Order } from '../shared/models/order';
-import { OrdersService } from '../commandes/orders.service';
 import { Commande } from '../shared/models/user';
 import { Router } from '@angular/router';
+import { OrdersService } from './orders.service';
 
 @Component({
-  selector: 'app-orders',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss']
+  selector: 'app-commandes',
+  templateUrl: './commandes.component.html',
+  styleUrls: ['./commandes.component.scss']
 })
-export class OrdersComponent implements OnInit {
+export class CommandesComponent {
 
-  
 
   search=""
   commandes: any[] = [];
@@ -30,10 +29,11 @@ export class OrdersComponent implements OnInit {
     error : error => console.log(error)
     })
   }
-  navigatell(id : number){
+  
+  
+  
+public navigatell(id : number){
 this.route.navigate([`/details/${id}`])
   }
-
-  // getCommandesforuser
 
 }
